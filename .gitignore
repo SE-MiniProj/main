@@ -1,0 +1,58 @@
+# ---- Build output ----
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+!.mvn/wrapper/maven-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# ---- Maven / Gradle ----
+.mvn/timing.properties
+.gradle/
+dependency-reduced-pom.xml
+
+# ---- IDEs ----
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+nbproject/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- Logs ----
+*.log
+logs/
+hs_err_pid*
+
+# ---- Secrets and local config ----
+.env
+.env.*
+application-local.properties
+application-local.yml
+*.pem
+*.key
+
+# ---- Local databases ----
+*.db
+*.sqlite
+*.mv.db
+*.trace.db
+data/

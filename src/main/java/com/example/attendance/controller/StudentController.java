@@ -1,0 +1,48 @@
+package com.example.attendance.controller;
+
+import com.example.attendance.dto.StudentRequest;
+import com.example.attendance.model.Student;
+import com.example.attendance.service.StudentService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/students")
+public class StudentController {
+
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Student create(@Valid @RequestBody StudentRequest request) {
+        return studentService.create(request);
+    }
+
+    @GetMapping
+    public List<Student> findAll() {
+        return studentService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Student findById(@PathVariable Long id) {
+        return studentService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Student update(@PathVariable Long id, @Valid @RequestBody StudentRequest request) {
+        return studentService.update(id, request);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        studentService.delete(id);
+    }
+}
